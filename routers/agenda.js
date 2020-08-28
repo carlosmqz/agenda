@@ -3,8 +3,8 @@ const router = express.Router();
 const base64 = require('base-64')
 const contactsModel = require('../models/contacts')
 const mongoose = require('mongoose')
-router.get('', (req, res) =>{
-    res.send('API server up')
+router.get('/', (req, res) =>{
+    res.render('index.html')
 })
 
 router.get('/allContacts', (req, res) => {

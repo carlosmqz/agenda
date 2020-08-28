@@ -3,6 +3,7 @@ const contactSchema = new mongoose.Schema({
             name: String,
             address: [
                 {
+                    addressName: String,
                     addressType: String,
                     cp: Number,
                     state: String

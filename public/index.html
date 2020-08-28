@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Agenda</title>
+</head>
+<body>
+    <h1>Personal Agenda</h1>
+    <h3>Add the contact information in the form below</h3>
+    <div id="app">
+        <form @submit.prevent="saveContact()">
+            <p>
+                <label for="name">Person Name</label>
+                <input v-model="name" type="text" name="name" id="name">
+            </p>
+            <p>
+                <label for="addressType">Address Type</label>
+                <select v-model="addressType" name="addressType" id="addressType">
+                    <option value="Home">Home</option>
+                    <option value="Office">Office</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+            <p>
+                <label for="addressName">Street and number </label>
+                <input v-model="addressName" type="text" name="addressName" id="addressName">
+            </p>
+            <label for="Postal Code">Postal Code</label>
+            <input type="number" v-model="cp" name="cp" id="cp">
+            <label for="state">State</label>
+            <input type="text" v-model="state" name="state" id="state">
+            <p>
+                <label for="phoneType">Phone Type</label>
+                <select name="phoneType" v-model="phoneType" id="phoneType">
+                    <option value="Home">Home</option>
+                    <option value="Office">Office</option>
+                    <option value="Cellphone">Cellphone</option>
+                    <option value="Other">Other</option>
+                </select>
+            </p>
+            <p>
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" v-model="phoneNumber" name="phoneNumber" id="phoneNumber">
+            </p>
+            <p>
+                <button type="submit">Save Data</button>
+            </p>
+        </form>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script src="app.js"></script>
+</html>
