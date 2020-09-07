@@ -11,14 +11,20 @@ const app = new Vue({
     },
     methods: {
         saveContact: async function(){
-            let encodedContactInfo = btoa(JSON.stringify(this.createContactInformationObject()));
-            let postUrl = '/agenda/add/'+encodedContactInfo
-            console.log(postUrl)
+            let postUrl = '/agenda/add'
             let response = await fetch(postUrl, {
                  method: 'POST',
-                 body: encodedContactInfo
+                 headers: {
+                     'Content-type': 'application/json'
+                 },
+                 body: JSON.stringify(this.createContactInformationObject())
             })
-            console.log(await response.json)
+            let data = await response.json();
+            if(data.error){
+                console.log(`Error at saving data: ${data.error} `);
+            }else{
+                console.log(data.message)
+            }
         },
         createContactInformationObject: function(){
             return  {

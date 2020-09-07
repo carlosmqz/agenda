@@ -51,14 +51,12 @@ router.get('/contacts/:id', (req, res) => {
     })
 })
 
-router.post('/add/:contactData', (req, res) => {
-    const dataJsonObject = JSON.parse(base64.decode(req.params.contactData))
-    const contactData = new contactsModel(dataJsonObject);
+router.post('/add', (req, res) => {
+    const contactData = new contactsModel(req.body);
     contactData.save()
         .then(res.status(200).send({
             error : null,
-            message:'Contact correctly saved',
-            data: dataJsonObject
+            message:'Contact correctly saved'
         }))
         .catch((err) => {
             res.status(400).send({
